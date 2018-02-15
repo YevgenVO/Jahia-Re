@@ -1,0 +1,40 @@
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<yemix = 'http://www.yeost.smile.fr/mix/1.0'>
+<yent = 'http://www.yeost.smile.fr/nt/1.0'>
+
+[yemix:yeostContent] > jmix:droppableContent mixin
+
+[yent:judge] > jnt:content, yemix:yeostContent
+ - name (string) mandatory
+ - surname (string) mandatory
+ - yearInOffice (decimal, text) mandatory < '(1799, 2200]'
+ - yearOfRegistration (decimal, text) < '[1800, 2200]'
+ - canton (string) mandatory
+ - birthDate (date, datepicker) mandatory < '[1799-12-31T23:59:59.998+12:00, 2200-12-31T23:59:59.999-00:00]'
+ - court (string, choicelist[resourceBundle]) < 'CC', 'IreCdS', 'IIeCdS', 'IreCC', 'IIeCdP', 'IreCdP', 'CdPA', 'IZirA', 'CdP', 'CCP', 'StrA', 'IIZirA', 'IIeCC'
+ - parti (string, choicelist) < 'KK', 'PAI', 'DEM', 'PLS', 'PS', 'PRD', 'PDC', 'UDC', 'LDU'
+ - deathDate (date, datepicker)
+ - photo (weakreference, picker[type='image'])
+ - biography (string, richtext) internationalized
+
+[yent:judgeView] > jnt:content, yemix:yeostContent
+
+[yent:judgeTable] > jnt:content, yemix:yeostContent
+
+[yent:journalist] > jnt:content, yemix:yeostContent
+ - title (string, choicelist[resourceBundle]) = 'male' mandatory i18n < 'male', 'female'
+ - academicTitle (string) internationalized
+ - name (string) = 'Name' mandatory
+ - surname (string) = 'Surname' mandatory
+ - address (string) = 'Address' mandatory
+ - NPA (long) = '123' mandatory
+ - place (string)  = 'place' mandatory
+ - phoneNum (string)
+ - cellphoneNum (string)
+ - email (string) = 'likjasdf@lojk.ll' mandatory < '(?:[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*|"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])'
+ - additionalEmail (string) multiple
+ - newspapersConcerned (string)
+ - languages (string, choicelist[resourceBundle]) multiple < 'frecnch', 'italian', 'german'
+ - password (string) mandatory
+ - userUUID (string) hidden
+ - disabled (boolean) = 'false'

@@ -1,0 +1,33 @@
+package org.jahia.modules.yeosttraining.rules
+
+// list any import classes here.
+import org.jahia.services.content.rules.*
+import org.jahia.services.content.JCRContentUtils
+import org.slf4j.Logger
+
+expander rules.dsl
+
+// declare any global variables here
+global User user
+global Service service
+global Logger logger
+global JCRContentUtils jcrUtils
+global fr.smile.yeost.ruls.CreateJournalistUser createJournalistUser
+global Logger Log
+
+rule "Creat New User"
+    when
+        A new node is created
+                    - it has the type yent:journalist
+    then
+        journalist user node
+end
+rule "Edit journalistUser"
+    when
+        A node is published
+                    - it has the type yent:journalist
+    then
+        Log "!!!!!!!!!!!!!!!!!!!!!!!!!edit journalist"
+        publishJournalist node
+
+end

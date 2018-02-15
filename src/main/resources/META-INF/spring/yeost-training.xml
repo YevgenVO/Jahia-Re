@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="ReverseJudgesNames" class="fr.smile.yeost.action.ReverseJudgesNames">
+        <property name="jcrService" ref="jcrService"/>
+    </bean>
+    <bean id="jcrService" class="fr.smile.jahia.service.JCRService" scope="singleton"/>
+    <bean id="nodeService" class="fr.smile.jahia.service.NodeService" scope="singleton"/>
+    <!--<bean id="createJournalistUser" class="fr.smile.yeost.ruls.CreateJournalistUser">-->
+        <!--<property name="jcrService" ref="jcrService"/>-->
+    <!--</bean>-->
+    <bean class="org.jahia.services.content.rules.ModuleGlobalObject">
+        <property name="globalRulesObject">
+            <map>
+                <entry key="createJournalistUser">
+                    <bean class="fr.smile.yeost.ruls.CreateJournalistUser">
+                        <property name="jcrService" ref="jcrService"/>
+                        <property name="nodeService" ref="nodeService"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

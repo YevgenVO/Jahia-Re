@@ -1,0 +1,21 @@
+.judge_view {
+    width: 95%;
+    padding: 10px;
+    margin-left: 5px;
+}
+.judge_view img {
+    width: 156px;
+}
+.judge_view h3 {
+    font-size: 25px;
+}
+th {
+    vertical-align: top;
+}
+/*.judge_view table {*/
+    /*border-collapse: collapse;*/
+/*}*/
+
+/*.judge_view table, th, td {*/
+    /*border: 1px solid black;*/
+/*}*/
